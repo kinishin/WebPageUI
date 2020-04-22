@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">		
+		<link rel="stylesheet" href="/static/css/styles.css" />
+		<link rel="stylesheet" href="/static/css/webpageui.css" />		
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/static/css/theme.css" />
+		<!--[if lt IE 10]>
+			<link rel="stylesheet" href="./static/iefix.css" />
+		<![endif]-->
+		<script type="text/javascript" src="/static/js/webpageui.js"></script>
+		<title>WebPageUI</title>
+	</head>
+	<body class="blackgold">
+		<div class="wpui-grid">
+			<div class="header">
+				<a class="logo" href="/"><img src="../static/images/logo.svg"/></a>
+			</div>
+			<div class="wpui-panel">				
+				<div class="main">
+					<div class="leftside" id="leftside"></div>
+					<div class="main-body">
+						<div class="main-view">
+							<div class="section" style="height: 300px;">
+								<div class="demo-title">
+									<h3>元素拖动</h3>
+								</div>
+								<button class="button bg-orange" wpui-drag>拖动我</button>
+							</div>
+							<div class="section" style="height: 600px;">								
+								<div class="demo-title">
+									<h3>万物皆可拖</h3>
+								</div>
+								<div class="buttons">
+									<button class="button" wpui-click="showAlert">可拖动提示框</button>									
+								</div>
+								<p style="margin-bottom: 20px;">拖动下方元素</p>
+								<div class="wpui-datepick" id="datepick"></div>
+							</div>						
+						</div>
+						<div class="main-bottom">
+							<div class="fl">
+								<b>webpageui.com</b><span> © 2019</span>
+							</div>
+							<div class="fr">
+								<span>Powered by </span><b>webpageui.com</b>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>	
+		</div>
+		
+<script>
+	(function(){
+		$wpui.ajax({
+			type: 'GET',
+			dataType: 'text',
+			url: '../templates/menu.html',
+			success: function (data) {
+				$wpui.DOM.selector('#leftside').innerHTML = data;
+				$wpui.Menu.init('#leftmenu');
+			}
+		});
+	})();	
+	
+	var app = {
+		methods: {
+			showAlert: function() {
+				$wpui.Alert({
+					title: '拖动窗体',
+					msg: '拖动窗体',
+					dragable: true
+				});
+			}
+		}
+	}
+	
+	$wpui.Setup(app);
+	
+	$wpui.Datepick.init({
+		elem: '#datepick'
+	});
+	$wpui.Drag(document.getElementById('datepick'));
+</script>
+
+	</body>
+</html>

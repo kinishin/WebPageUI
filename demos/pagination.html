@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">		
+		<link rel="stylesheet" href="/static/css/styles.css" />
+		<link rel="stylesheet" href="/static/css/webpageui.css" />		
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/static/css/theme.css" />
+		<!--[if lt IE 10]>
+			<link rel="stylesheet" href="./static/iefix.css" />
+		<![endif]-->
+		<script type="text/javascript" src="/static/js/webpageui.js"></script>
+		<title>WebPageUI</title>
+	</head>
+	<body class="blackgold">
+		<div class="wpui-grid">
+			<div class="header">
+				<a class="logo" href="/"><img src="../static/images/logo.svg"/></a>
+			</div>
+			<div class="wpui-panel">				
+				<div class="main">
+					<div class="leftside" id="leftside"></div>
+					<div class="main-body">
+						<div class="main-view">
+							<div class="section">
+								<div class="demo-title">
+									<h3>分页</h3>
+								</div>
+								<div id="pagination"></div>
+								<p id="result">当前第1页</p>
+							</div>	
+							<div class="section">
+								<div class="demo-title">
+									<h3>分页 使用链接</h3>
+								</div>
+								<div id="pagination2"></div>
+							</div>	
+							<div class="section">
+								<div class="demo-title">
+									<h3>自定义主题分页</h3>
+								</div>
+								<div id="pagination3"></div>
+								<p id="result2">当前第1页</p>
+							</div>	
+							<div class="section">
+								<div class="demo-title">
+									<h3>未完待续....</h3>
+								</div>
+							</div>						
+						</div>
+						<div class="main-bottom">
+							<div class="fl">
+								<b>webpageui.com</b><span> © 2019</span>
+							</div>
+							<div class="fr">
+								<span>Powered by </span><b>webpageui.com</b>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>	
+		</div>
+		
+<script>
+	(function(){
+		$wpui.ajax({
+			type: 'GET',
+			dataType: 'text',
+			url: '../templates/menu.html',
+			success: function (data) {
+				$wpui.DOM.selector('#leftside').innerHTML = data;
+				$wpui.Menu.init('#leftmenu');
+			}
+		});
+	})();	
+	$wpui.Setup();
+	
+	$wpui.Pagination.init({
+		elem: '#pagination',
+		totalpage: 10,
+		callback: function(i) {
+			var result = document.getElementById('result');
+			result.innerHTML = '当前第' + i + '页';
+		}
+	});
+	
+	$wpui.Pagination.init({
+		elem: '#pagination2',
+		currentpage: 2,
+		totalpage: 10,
+		islink: true,
+		urlFormat: 'https://www.baidu.com/?page=_page_'
+	});
+	
+	$wpui.Pagination.init({
+		elem: '#pagination3',
+		totalpage: 20,
+		num_range: 3,
+		theme: 'green',
+		callback: function(i) {
+			var result2 = document.getElementById('result2');
+			result2.innerHTML = '当前第' + i + '页';
+			$wpui.Toast(i);
+		}
+	});
+</script>
+
+	</body>
+</html>

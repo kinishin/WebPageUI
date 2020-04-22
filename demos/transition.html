@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">		
+		<link rel="stylesheet" href="/static/css/styles.css" />
+		<link rel="stylesheet" href="/static/css/webpageui.css" />		
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/static/css/theme.css" />
+		<!--[if lt IE 10]>
+			<link rel="stylesheet" href="./static/iefix.css" />
+		<![endif]-->
+		<script type="text/javascript" src="/static/js/webpageui.js"></script>
+		<title>WebPageUI</title>
+		<style>
+			.animations button {
+				margin: 0 10px 10px 0;
+			}
+			ul.list {
+				text-align: center;
+				font-size: 0;
+			}
+			ul.list > li {
+				display: inline-block;
+			    width: 160px;
+			    height: 160px;
+			    margin-bottom: 20px;
+			    font-size: 18px;
+			}
+			ul.list > li > div {
+				width: 120px; 
+				height: 120px; 
+				background: #f00; 
+				border-radius: 50%; 
+				margin: 20px auto 0;
+				line-height: 120px;
+				color: #fff;
+			}
+			.test-trans-show, .test-trans-hide {
+			  	-webkit-transition: all 2s ease-out;
+			  	-moz-transition: all 2s ease-out;
+			  	transition: all 2s ease-out;
+			}
+			.test-trans, .test-hide {
+				transform: translateY(50px);
+				opacity: 0;
+			}	
+		</style>
+	</head>
+	<body class="blackgold">
+		<div class="wpui-grid">
+			<div class="header">
+				<a class="logo" href="/"><img src="../static/images/logo.svg"/></a>
+			</div>
+			<div class="wpui-panel">				
+				<div class="main">
+					<div class="leftside" id="leftside"></div>
+					<div class="main-body">
+						<div class="main-view">
+							<div class="section">
+								<div class="demo-title">
+									<h3>动画</h3>
+								</div>
+								<h3 style="margin-bottom: 20px;">点击下方按钮预览效果</h3>
+								<div class="animations" id="a1">
+									<button class="button">fade</button>
+									<button class="button">fadezoom</button>
+									<button class="button">fadeleft</button>
+									<button class="button">faderight</button>
+									<button class="button">fadetop</button>
+									<button class="button">fadebottom</button>
+									<button class="button">popup</button>
+									<button class="button">rotate</button>
+									<button class="button" wpui-tooltip="自定义过渡动画">test</button>
+								</div>
+							</div>
+							<div class="section">
+								<div class="demo-title">
+									<h3>动画 消失</h3>
+								</div>
+								<h3 style="margin-bottom: 20px; display: inline-block;">点击下方按钮预览效果</h3>
+								<a id="resetA2" style="font-size: 12px; color: #0F83DB; text-decoration: underline;" href="javascript:;">重置</a>
+								<div class="animations" id="a2">
+									<button class="button">fade</button>
+									<button class="button">fadezoom</button>
+									<button class="button">fadeleft</button>
+									<button class="button">faderight</button>
+									<button class="button">fadetop</button>
+									<button class="button">fadebottom</button>
+									<button class="button">popup</button>
+									<button class="button">rotate</button>
+									<button class="button" wpui-tooltip="自定义过渡动画">test</button>
+								</div>
+							</div>	
+							<div class="section">
+								<div class="demo-title">
+									<h3>演示用例</h3>
+								</div>
+								<button class="button" id="transLeftMenu">显示/隐藏 左边菜单</button>
+								<button class="button" id="transLogo">显示/隐藏 LOGO</button>
+							</div>	
+						</div>
+						<div class="main-bottom">
+							<div class="fl">
+								<b>webpageui.com</b><span> © 2019</span>
+							</div>
+							<div class="fr">
+								<span>Powered by </span><b>webpageui.com</b>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>	
+		</div>
+		
+<script>
+	(function(){
+		$wpui.ajax({
+			type: 'GET',
+			dataType: 'text',
+			url: '../templates/menu.html',
+			success: function (data) {
+				$wpui.DOM.selector('#leftside').innerHTML = data;
+				$wpui.Menu.init('#leftmenu');
+			}
+		});
+	})();	
+	$wpui.Setup();
+	
+	document.querySelectorAll('#a1 button').forEach(function(elem, index) {
+		let name = elem.innerHTML;
+		$wpui.DOM.on(elem, 'click', function() {
+			$wpui.DOM.trans({
+				elem: elem,
+				name: name
+			}, true);
+		});		
+	});
+	document.querySelectorAll('#a2 button').forEach(function(elem, index) {
+		let name = elem.innerHTML;
+		$wpui.DOM.on(elem, 'click', function() {
+			$wpui.DOM.trans({
+				elem: elem,
+				name: name
+			}, false);
+		});		
+	});
+	
+	$wpui.DOM.on('#resetA2', 'click', function() {
+		document.querySelectorAll('#a2 button').forEach(function(elem, index) {
+			elem.style.display = '';	
+		});
+	});
+	
+	var showmenu = true;
+	$wpui.DOM.on('#transLeftMenu', 'click', function() {
+		showmenu = !showmenu;
+		$wpui.DOM.trans({
+			elem: '#leftside',
+			name: 'fadeleft'
+		}, showmenu);
+	});
+	
+	var showlogo = true;
+	$wpui.DOM.on('#transLogo', 'click', function() {
+		showlogo = !showlogo;
+		$wpui.DOM.trans({
+			elem: 'a.logo',
+			name: 'rotate'
+		}, showlogo);
+	});
+	
+</script>
+
+	</body>
+</html>

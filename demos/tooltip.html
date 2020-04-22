@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">		
+		<link rel="stylesheet" href="/static/css/styles.css" />
+		<link rel="stylesheet" href="/static/css/webpageui.css" />		
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/static/css/theme.css" />
+		<!--[if lt IE 10]>
+			<link rel="stylesheet" href="./static/iefix.css" />
+		<![endif]-->
+		<script type="text/javascript" src="/static/js/webpageui.js"></script>
+		<title>WebPageUI</title>
+		<style>
+			p > span {
+				border-bottom: 2px dotted;
+			    cursor: pointer;
+			    color: #0091ff;
+			}
+		</style>
+	</head>
+	<body class="blackgold">
+		<div class="wpui-grid">
+			<div class="header">
+				<a class="logo" href="/"><img src="../static/images/logo.svg"/></a>
+			</div>
+			<div class="wpui-panel">				
+				<div class="main">
+					<div class="leftside" id="leftside"></div>
+					<div class="main-body">
+						<div class="main-view">
+							<div class="section" id="container">
+								<div class="demo-title">
+									<h3>工具提示</h3>
+								</div>
+								<p><span id="tooltip">超文本标记语言</span>(Hyper Text Markup Language)，标准通用标记语言下的一个应用。<span id="tooltip2">HTML</span> 不是一种编程语言，而是一种标记语言 (markup language)，是网页制作所必备的。“超文本”就是指页面内可以包含图片、链接，甚至音乐、程序等非文字元素。超文本标记语言(或超文本标签语言)的结构包括“头”部分、和“主体”部分，其中“头”部提供关于网页的信息，“主体”部分提供网页的具体内容。</p>
+								<p><span wpui-tooltip="测试">test</span></p>
+								<br />
+								<p><span id="test">测试</span></p>
+								<br />
+								<p><span wpui-tooltip="属性设置相对位置" tooltip-static="false">属性设置相对位置</span></p>
+							</div>							
+						</div>
+						<div class="main-bottom">
+							<div class="fl">
+								<b>webpageui.com</b><span> © 2019</span>
+							</div>
+							<div class="fr">
+								<span>Powered by </span><b>webpageui.com</b>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>	
+		</div>
+		
+<script>
+	(function(){
+		$wpui.ajax({
+			type: 'GET',
+			dataType: 'text',
+			url: '../templates/menu.html',
+			success: function (data) {
+				$wpui.DOM.selector('#leftside').innerHTML = data;
+				$wpui.Menu.init('#leftmenu');
+			}
+		});
+	})();	
+	$wpui.Setup();
+	
+	$wpui.ToolTip.show({
+		elem: '#tooltip',
+		content: 'Hyper Text Markup Language'
+	});
+	$wpui.ToolTip.show({
+		elem: document.getElementById('tooltip2'),
+		content: 'HTML'
+	});
+	$wpui.ToolTip.show({
+		elem: '#test',
+		content: 'test',
+		pos: 'relative'
+	});
+</script>
+
+	</body>
+</html>

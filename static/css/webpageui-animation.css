@@ -1,0 +1,81 @@
+.popup-trans-show, .popup-trans-hide {
+  	-webkit-transition: -webkit-transform .3s ease-in, opacity .3s ease-in;
+  	-moz-transition: -moz-transform .3s ease-in, opacity .3s ease-in;
+  	transition: transform .3s ease-in, opacity .3s ease-in;
+}
+.popup-trans, .popup-hide {
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	transform: scale(1.1);
+	opacity: 0;
+}
+
+.fade-trans-show, .fade-trans-hide {
+  	-webkit-transition: opacity 0.6s;
+  	-moz-transition: opacity 0.6s;
+  	transition: opacity 0.6s;
+}
+.fade-trans, .fade-hide {
+	opacity: 0;
+}
+
+.fadeleft-trans-show, .fadeleft-trans-hide {
+  	-webkit-transition: transform 0.6s;
+  	-moz-transition: transform 0.6s;
+  	transition: transform 0.6s;
+  	transform: translateX(0);
+}
+.fadeleft-trans, .fadeleft-hide {
+	transform: translateX(-100%);
+}
+
+.faderight-trans-show, .faderight-trans-hide {
+  	-webkit-transition: transform 0.6s;
+  	-moz-transition: transform 0.6s;
+  	transition: transform 0.6s;
+  	transform: translateX(0);
+}
+.faderight-trans, .faderight-hide {
+	transform: translateX(100%);
+}
+
+.fadetop-trans-show, .fadetop-trans-hide {
+  	-webkit-transition: transform 0.6s;
+  	-moz-transition: transform 0.6s;
+  	transition: transform 0.6s;
+  	transform: translateY(0);
+}
+.fadetop-trans, .fadetop-hide {
+	transform: translateY(-100%);
+}
+
+.fadebottom-trans-show, .fadebottom-trans-hide {
+  	-webkit-transition: transform 0.6s;
+  	-moz-transition: transform 0.6s;
+  	transition: transform 0.6s;
+  	transform: translateY(0);
+}
+.fadebottom-trans, .fadebottom-hide {
+	transform: translateY(100%);
+}
+
+.fadezoom-trans-show, .fadezoom-trans-hide {
+  	-webkit-transition: transform 0.6s;
+  	-moz-transition: transform 0.6s;
+  	transition: transform 0.6s;
+  	transform: scale(1);
+}
+.fadezoom-trans, .fadezoom-hide {
+	transform: scale(0);
+}
+
+.rotate-trans-show, .rotate-trans-hide {
+  	-webkit-transition: traallnsform 1s;
+  	-moz-transition: all 1s;
+  	transition: all 1s;
+  	opacity: 1;
+}
+.rotate-trans, .rotate-hide {
+	transform: rotate(1080deg);
+	opacity: 0;
+}

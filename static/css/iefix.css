@@ -1,0 +1,41 @@
+/*.sidermenu {
+	position: fixed\9;
+	height: 100%\9;
+	box-shadow: none\9;
+}
+
+.main-body > .main {
+	position: fixed\9; 
+	left: 200px\9; 
+	display: block\9; 
+	right: 0\9;
+	height:100%\9;
+}
+.main-body > .main .main-view {
+	display: block\9; 
+	position: fixed\9; 
+	left: 200px\9;
+	right: 0\9;
+	bottom: 50px\9; 
+	top: 54px\9;
+}
+.main-bottom {
+	display: block\9; 
+	position: fixed\9; 
+	left: 200px\9;
+	right: 0\9;
+	bottom: 0\9; 
+}
+
+.wpui-datepick-prev {
+	float: left;
+}
+.wpui-datepick-next {
+	float: right;
+}
+.wpui-datepick-title {
+	position: absolute;
+	height: 100%;
+	left: 48px;
+	right: 48px;
+}*/

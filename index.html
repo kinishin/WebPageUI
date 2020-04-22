@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">		
+		<link rel="stylesheet" href="/static/css/styles.css" />
+		<link rel="stylesheet" href="/static/css/webpageui.css" />		
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/static/css/theme.css" />
+		<!--[if lt IE 10]>
+			<link rel="stylesheet" href="./static/iefix.css" />
+		<![endif]-->
+		<script type="text/javascript" src="/static/js/webpageui.js"></script>
+		<title>WebPageUI</title>
+		
+		<style>
+			.inner-wrapper {
+				display: -webkit-flex;
+				display: -moz-flex;
+				display: flex;
+			    -webkit-align-items: center;
+			    -moz-align-items: center;
+			    -webkit-align-items: center;
+			    -webkit-justify-content: center;
+			    -moz-justify-content: center;
+			    justify-content: center;
+			    -webkit-flex-direction: column;
+			    -moz-flex-direction: column;
+			    flex-direction: column;
+			    -webkit-user-select: none;
+			    -moz-user-select: none;
+			    user-select: none;
+			    height: 100%;			    
+			}
+			.inner-wrapper h2 {
+				color: #aeaeae;
+			    font-size: 80px;	
+			    margin-bottom: 30px;	
+			    white-space: nowrap;	    
+			}
+			.inner-wrapper p {
+				font-size: 30px;
+    			color: #999;
+			}
+		</style>
+	</head>
+	<body class="blackgold">
+		<div class="wpui-grid">
+			<div class="header">
+				<a class="logo" href="/"><img src="../static/images/logo.svg"/></a>
+			</div>
+			<div class="wpui-panel">				
+				<div class="main">
+					<div class="leftside" id="leftside"></div>
+					<div class="main-body">
+						<div class="main-view">
+							<div class="inner-wrapper">
+								<h2>欢迎使用WebPageUI</h2>
+								<p>Version 0.0.1 Alpha</p>
+							</div>						
+						</div>
+						<div class="main-bottom">
+							<div class="fl">
+								<b>webpageui.com</b><span> © 2019</span>
+							</div>
+							<div class="fr">
+								<span>Powered by </span><b>webpageui.com</b>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>	
+		</div>
+		
+<script>
+	(function(){
+		$wpui.ajax({
+			type: 'GET',
+			dataType: 'text',
+			url: '../templates/menu.html',
+			success: function (data) {
+				$wpui.DOM.selector('#leftside').innerHTML = data;
+				$wpui.Menu.init('#leftmenu');
+			}
+		});
+	})();	
+	$wpui.Setup();
+</script>
+
+	</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">		
+		<link rel="stylesheet" href="/static/css/styles.css" />
+		<link rel="stylesheet" href="/static/css/webpageui.css" />		
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/static/css/theme.css" />
+		<!--[if lt IE 10]>
+			<link rel="stylesheet" href="./static/iefix.css" />
+		<![endif]-->
+		<script type="text/javascript" src="/static/js/webpageui.js"></script>
+		<title>WebPageUI</title>
+		<style>
+			.switches  {
+				margin-bottom: 20px;
+			}
+			.switches .wpui-onoff {
+				float: left;
+				margin: 0 10px 10px 0;
+			}
+		</style>
+	</head>
+	<body class="blackgold">
+		<div class="wpui-grid">
+			<div class="header">
+				<a class="logo" href="/"><img src="../static/images/logo.svg"/></a>
+			</div>
+			<div class="wpui-panel">				
+				<div class="main">
+					<div class="leftside" id="leftside"></div>
+					<div class="main-body">
+						<div class="main-view">
+							<div class="section">
+								<div class="demo-title">
+									<h3>开关</h3>
+								</div>
+								<div class="switches clear">				
+									<div class="wpui-onoff" wpui-onoff wpui-click="test">
+										<input class="wpui-onoff-checkbox" type="checkbox" id="checkbox" checked />
+										<span>
+											<i class="check"></i>
+											<em class="on">ON</em>
+											<em class="off">OFF</em>
+										</span>
+									</div>
+									<div class="wpui-onoff" wpui-onoff style="width: 48px;">
+										<input class="wpui-onoff-checkbox" type="checkbox" id="checkbox2"/>
+										<span>
+											<i class="check"></i>
+											<em class="on">开</em>
+											<em class="off">关</em>
+										</span>
+									</div>
+									<div class="wpui-onoff wpui-onoff-fill" wpui-onoff>
+										<input class="wpui-onoff-checkbox" type="checkbox" id="checkbox3"/>
+										<span>
+											<i class="check"></i>
+										</span>
+									</div>
+								</div>
+								<div class="switches clear">	
+									<div class="wpui-onoff wpui-onoff-large" wpui-onoff>
+										<input class="wpui-onoff-checkbox" type="checkbox" id="checkbox4"/>
+										<span>
+											<i class="check"></i>
+										</span>
+									</div>
+									<div class="wpui-onoff wpui-onoff-fill wpui-onoff-large" wpui-onoff>
+										<input class="wpui-onoff-checkbox" type="checkbox" id="checkbox5"/>
+										<span>
+											<i class="check"></i>
+										</span>
+									</div>
+									<div class="wpui-onoff wpui-onoff-large wpui-onoff-blue" wpui-onoff style="width: 54px;">
+										<input class="wpui-onoff-checkbox" type="checkbox" id="checkbox6"/>
+										<span>
+											<i class="check"></i>
+											<em class="on">开</em>
+											<em class="off">关</em>
+										</span>
+									</div>
+								</div>
+								<button class="button" id="btn" wpui-click="getdata">获取数据</button>
+							</div>							
+						</div>
+						<div class="main-bottom">
+							<div class="fl">
+								<b>webpageui.com</b><span> © 2019</span>
+							</div>
+							<div class="fr">
+								<span>Powered by </span><b>webpageui.com</b>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>	
+		</div>
+		
+<script>
+	(function(){
+		$wpui.ajax({
+			type: 'GET',
+			dataType: 'text',
+			url: '../templates/menu.html',
+			success: function (data) {
+				$wpui.DOM.selector('#leftside').innerHTML = data;
+				$wpui.Menu.init('#leftmenu');
+			}
+		});
+	})();	
+	
+	var methods = {
+		test: function() {
+			var ischecked = this.querySelector('input').checked ? 'ON' : 'OFF';
+			$wpui.Alert({
+				title: '提示框',
+				msg: ischecked
+			});
+		},
+		getdata: function() {
+			var content = '';
+			content += $wpui.DOM.selector('#checkbox').checked + ',';
+			content += $wpui.DOM.selector('#checkbox2').checked + ',';
+			content += $wpui.DOM.selector('#checkbox3').checked + ',';
+			content += $wpui.DOM.selector('#checkbox4').checked + ',';
+			content += $wpui.DOM.selector('#checkbox5').checked + ',';
+			content += $wpui.DOM.selector('#checkbox6').checked;
+			$wpui.Alert({
+				title: '提示框',
+				msg: content
+			});
+		}
+	}
+	
+	var app = {
+		methods: methods
+	}
+	
+	$wpui.Setup(app);	
+</script>
+
+	</body>
+</html>

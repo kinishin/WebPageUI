@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">		
+		<link rel="stylesheet" href="/static/css/styles.css" />
+		<link rel="stylesheet" href="/static/css/webpageui.css" />		
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/static/css/theme.css" />
+		<!--[if lt IE 10]>
+			<link rel="stylesheet" href="./static/iefix.css" />
+		<![endif]-->
+		<script type="text/javascript" src="/static/js/webpageui.js"></script>
+		<title>WebPageUI</title>
+	</head>
+	<body class="blackgold">
+		<div class="wpui-grid">
+			<div class="header">
+				<a class="logo" href="/"><img src="../static/images/logo.svg"/></a>
+			</div>
+			<div class="wpui-panel">				
+				<div class="main">
+					<div class="leftside" id="leftside"></div>
+					<div class="main-body">
+						<div class="main-view">
+							<div class="section">
+								<div class="demo-title">
+									<h3>时间轴</h3>
+								</div>
+								<div class="wpui-timeline">
+									<div class="wpui-timeline-item">
+										<div class="wpui-timeline-icon"></div>										
+										<div class="wpui-timeline-body">
+											<div class="wpui-timeline-time"><b>2010-01-01</b></div>
+											<div class="wpui-timeline-main">
+												<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+											</div>
+										</div>
+									</div>
+									<div class="wpui-timeline-item">
+										<div class="wpui-timeline-icon"></div>										
+										<div class="wpui-timeline-body">
+											<div class="wpui-timeline-time"><b>2010-01-02</b></div>
+											<div class="wpui-timeline-main">
+												<p>Lorem ipsum dolor sit amet</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>							
+						</div>
+						<div class="main-bottom">
+							<div class="fl">
+								<b>webpageui.com</b><span> © 2019</span>
+							</div>
+							<div class="fr">
+								<span>Powered by </span><b>webpageui.com</b>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>	
+		</div>
+		
+<script>
+	(function(){
+		$wpui.ajax({
+			type: 'GET',
+			dataType: 'text',
+			url: '../templates/menu.html',
+			success: function (data) {
+				$wpui.DOM.selector('#leftside').innerHTML = data;
+				$wpui.Menu.init('#leftmenu');
+			}
+		});
+	})();	
+	$wpui.Setup();
+</script>
+
+	</body>
+</html>

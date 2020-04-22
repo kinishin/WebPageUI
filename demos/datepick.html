@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">		
+		<link rel="stylesheet" href="/static/css/styles.css" />
+		<link rel="stylesheet" href="/static/css/webpageui.css" />		
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/static/css/theme.css" />
+		<!--[if lt IE 10]>
+			<link rel="stylesheet" href="./static/iefix.css" />
+		<![endif]-->
+		<script type="text/javascript" src="/static/js/webpageui.js"></script>
+		<title>WebPageUI</title>
+	</head>
+	<body class="blackgold">
+		<div class="wpui-grid">
+			<div class="header">
+				<a class="logo" href="/"><img src="../static/images/logo.svg"/></a>
+			</div>
+			<div class="wpui-panel">				
+				<div class="main">
+					<div class="leftside" id="leftside"></div>
+					<div class="main-body">
+						<div class="main-view">
+							<div class="section">
+								<div class="demo-title">
+									<h3>日期时间选择</h3>
+								</div>
+								<div style="position: relative;">									
+									<div class="wpui-datepick" wp-datetime="2012-12-21" id="datepick1"></div>
+									<br />
+									<div class="wpui-datepick" id="datepick2"></div>
+									<br />
+									<div class="wpui-datepick" id="datepick3"></div>
+									<br />
+									<div class="wpui-datepick-input" id="datepick4" style="position: absolute; right: 20px; top: 600px;">
+										<input type="text" placeholder="请选择日期"/>
+									</div>
+									<div class="wpui-datepick-input" id="datepick5" style="position: absolute; right: 20px; top: 640px;">
+										<input type="text" placeholder="请选择日期" value="2010-01-01"/>
+									</div>
+								</div>
+							</div>		
+							<div class="section">
+								<div class="demo-title">
+									<h3>未完待续....</h3>
+								</div>
+							</div>						
+						</div>
+						<div class="main-bottom">
+							<div class="fl">
+								<b>webpageui.com</b><span> © 2019</span>
+							</div>
+							<div class="fr">
+								<span>Powered by </span><b>webpageui.com</b>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>	
+		</div>
+		
+<script>
+	(function(){
+		$wpui.ajax({
+			type: 'GET',
+			dataType: 'text',
+			url: '../templates/menu.html',
+			success: function (data) {
+				$wpui.DOM.selector('#leftside').innerHTML = data;
+				$wpui.Menu.init('#leftmenu');
+			}
+		});
+	})();	
+	$wpui.Setup();
+	
+	$wpui.Datepick.init({
+		elem: '#datepick1'
+	});
+	$wpui.Datepick.init({
+		elem: '#datepick2',
+		datechange: function(datetime) {
+			$wpui.Toast({
+				msg: datetime,
+				position: 'bottom'
+			});
+		}
+	});
+	$wpui.Datepick.init({
+		elem: '#datepick3',
+		time: '1987-09-14',
+		theme: 'blue'
+	});
+	$wpui.Datepick.init({
+		elem: '#datepick4',
+		isInput: true,
+		theme: 'blue',
+		datechange: function(datetime) {
+			$wpui.Toast(datetime);
+		}
+	});
+	$wpui.Datepick.init({
+		elem: '#datepick5',
+		isInput: true,
+		datechange: function(datetime) {
+			$wpui.Toast(datetime);
+		}
+	});
+</script>
+
+	</body>
+</html>

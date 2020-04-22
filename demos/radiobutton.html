@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">		
+		<link rel="stylesheet" href="/static/css/styles.css" />
+		<link rel="stylesheet" href="/static/css/webpageui.css" />		
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/static/css/theme.css" />
+		<!--[if lt IE 10]>
+			<link rel="stylesheet" href="./static/iefix.css" />
+		<![endif]-->
+		<script type="text/javascript" src="/static/js/webpageui.js"></script>
+		<title>WebPageUI</title>
+		<style>
+			.radiobuttons .wpui-radio {
+				float: left;
+				margin: 0 12px 12px 0;
+			}
+		</style>
+	</head>
+	<body class="blackgold">
+		<div class="wpui-grid">
+			<div class="header">
+				<a class="logo" href="/"><img src="../static/images/logo.svg"/></a>
+			</div>
+			<div class="wpui-panel">				
+				<div class="main">
+					<div class="leftside" id="leftside"></div>
+					<div class="main-body">
+						<div class="main-view">
+							<div class="section">
+								<div class="demo-title">
+									<h3>单选框</h3>
+								</div>
+								<div class="radiobuttons clear">
+									<div class="wpui-radio" wpui-radio>
+										<input type="radio" name="aaa" value="1" checked/>
+										<i></i>
+										<span>001</span>
+									</div>
+									<div class="wpui-radio" wpui-radio>
+										<input type="radio" name="aaa" value="2" />
+										<i></i>
+										<span>002</span>
+									</div>
+									<div class="wpui-radio" wpui-radio>
+										<input type="radio" name="aaa" value="3" />
+										<i></i>
+										<span>003</span>
+									</div>
+									<div class="wpui-radio wpui-radio-disabled" wpui-radio>
+										<input type="radio" name="aaa" value="3" />
+										<i></i>
+										<span>004</span>
+									</div>
+								</div>
+								<button class="button" id="btn" wpui-click="getdata">获取数据</button>
+							</div>							
+						</div>
+						<div class="main-bottom">
+							<div class="fl">
+								<b>webpageui.com</b><span> © 2019</span>
+							</div>
+							<div class="fr">
+								<span>Powered by </span><b>webpageui.com</b>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>	
+		</div>
+		
+<script>
+	(function(){
+		$wpui.ajax({
+			type: 'GET',
+			dataType: 'text',
+			url: '../templates/menu.html',
+			success: function (data) {
+				$wpui.DOM.selector('#leftside').innerHTML = data;
+				$wpui.Menu.init('#leftmenu');
+			}
+		});
+	})();	
+	
+	var app = {
+		methods: {
+			getdata() {
+				var val = document.querySelector('input[type="radio"][name="aaa"]:checked').value;
+				$wpui.Alert(val);
+			}
+		}
+	}
+	
+	$wpui.Setup(app);
+</script>
+
+	</body>
+</html>

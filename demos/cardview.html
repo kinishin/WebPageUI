@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">		
+		<link rel="stylesheet" href="/static/css/styles.css" />
+		<link rel="stylesheet" href="/static/css/webpageui.css" />		
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/static/css/theme.css" />
+		<!--[if lt IE 10]>
+			<link rel="stylesheet" href="./static/iefix.css" />
+		<![endif]-->
+		<script type="text/javascript" src="/static/js/webpageui.js"></script>
+		<title>WebPageUI</title>
+	</head>
+	<body class="blackgold">
+		<div class="wpui-grid">
+			<div class="header">
+				<a class="logo" href="/"><img src="../static/images/logo.svg"/></a>
+			</div>
+			<div class="wpui-panel">				
+				<div class="main">
+					<div class="leftside" id="leftside"></div>
+					<div class="main-body">
+						<div class="main-view">
+							<div class="section">
+								<div class="demo-title">
+									<h3>卡片视图</h3>
+								</div>
+							</div>
+							<div class="section">
+								<div class="wpui-card">
+									<div class="wpui-card-head">
+										<span>card head</span>
+										<div class="wpui-card-toolbar">
+											<a href="javascript:;"><i class="fa fa-cog"></i></a>
+											<a href="javascript:;"><i class="fa fa-heart-o"></i></a>
+											<a href="javascript:;"><i class="fa fa-refresh"></i></a>
+										</div>
+									</div>
+									<div class="wpui-card-body">
+										Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+									</div>
+									<div class="wpui-card-foot">
+										<span>card foot</span>
+									</div>
+								</div>
+							</div>
+							<div class="section">
+								<div class="wpui-card wpui-card-blue" style="width: 300px;">
+									<div class="wpui-card-head">
+										<i class="fa fa-bars"></i>
+										<span>card head</span>
+									</div>
+									<div class="wpui-card-body">
+										Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+									</div>
+								</div>
+							</div>
+							<div class="section">
+								<div class="wpui-card wpui-card-red" style="width: 300px;">									
+									<div class="wpui-card-body">
+										Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+									</div>
+									<div class="wpui-card-foot">
+										<span>card foot</span>
+									</div>
+								</div>
+							</div>
+							<div class="section">
+								<div class="wpui-card wpui-card-blue" style="width: 300px;">									
+									<div class="wpui-card-body">
+										Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+									</div>
+								</div>
+							</div>						
+						</div>
+						<div class="main-bottom">
+							<div class="fl">
+								<b>webpageui.com</b><span> © 2019</span>
+							</div>
+							<div class="fr">
+								<span>Powered by </span><b>webpageui.com</b>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>	
+		</div>
+		
+<script>
+	(function(){
+		$wpui.ajax({
+			type: 'GET',
+			dataType: 'text',
+			url: '../templates/menu.html',
+			success: function (data) {
+				$wpui.DOM.selector('#leftside').innerHTML = data;
+				$wpui.Menu.init('#leftmenu');
+			}
+		});
+	})();	
+	$wpui.Setup();
+</script>
+
+	</body>
+</html>

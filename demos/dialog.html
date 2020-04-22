@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">		
+		<link rel="stylesheet" href="/static/css/styles.css" />
+		<link rel="stylesheet" href="/static/css/webpageui.css" />		
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/static/css/theme.css" />
+		<!--[if lt IE 10]>
+			<link rel="stylesheet" href="./static/iefix.css" />
+		<![endif]-->
+		<script type="text/javascript" src="/static/js/webpageui.js"></script>
+		<title>WebPageUI</title>
+		
+		<style>
+			.buttons button {
+				margin: 5px 8px 5px 0;
+			}
+		</style>
+	</head>
+	<body class="blackgold">
+		<div class="wpui-grid">
+			<div class="header">
+				<a class="logo" href="/"><img src="../static/images/logo.svg"/></a>
+			</div>
+			<div class="wpui-panel">				
+				<div class="main">
+					<div class="leftside" id="leftside"></div>
+					<div class="main-body">
+						<div class="main-view">
+							<div class="section">
+								<div class="demo-title">
+									<h3>对话框</h3>
+								</div>
+								<div class="buttons">
+									<button class="button" wpui-click="showAlert">提示框</button>
+									<button class="button" wpui-click="showConfirm">确认框</button>									
+									<button class="button" wpui-click="showPrompt">输入框</button>
+									<button class="button" wpui-click="showToast">消息提示</button>
+								</div>
+							</div>	
+							<div class="section" id="t">
+								<div class="demo-title">
+									<h3>通知对话框</h3>
+								</div>
+								<div class="buttons">
+									<button class="button" wpui-click="showNotify">默认</button>
+									<button class="button" wpui-click="showNotify2">成功</button>
+									<button class="button" wpui-click="showNotify3">警告</button>
+									<button class="button" wpui-click="showNotify4">错误</button>
+									<button class="button" wpui-click="showNotify5">一直存在</button>
+									<button class="button" wpui-click="showNotify6">禁止点击关闭</button>
+									<button class="button" wpui-click="showNotify7">不显示进度条</button>
+									<button class="button" wpui-click="showNotify8">点击执行回调</button>
+								</div>
+							</div>
+							<div class="section">
+								<div class="demo-title">
+									<h3>对话框动画</h3>
+								</div>
+								<div class="buttons">
+									<button class="button" wpui-click="alertTrans">提示框</button>
+								</div>
+							</div>	
+						</div>
+						<div class="main-bottom">
+							<div class="fl">
+								<b>webpageui.com</b><span> © 2019</span>
+							</div>
+							<div class="fr">
+								<span>Powered by </span><b>webpageui.com</b>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>	
+		</div>
+		
+<script>
+	(function(){
+		$wpui.ajax({
+			type: 'GET',
+			dataType: 'text',
+			url: '../templates/menu.html',
+			success: function (data) {
+				$wpui.DOM.selector('#leftside').innerHTML = data;
+				$wpui.Menu.init('#leftmenu');
+			}
+		});
+	})();	
+	
+	var isShow = true;
+	
+	var methods = {
+		showAlert: function() {
+			$wpui.Alert({
+				title: '提示框',
+				msg: 'now:' + new Date().format('yyyy-MM-dd hh:mm:ss')
+			});
+		},
+		showConfirm: function() {
+			$wpui.Confirm({
+				title: '确认框',
+				msg: '是否删除?',
+				callback: function() {
+					alert('123');
+				}
+			});
+		},
+		showPrompt: function() {
+			$wpui.Prompt({
+				title: '输入框',
+				msg: '请在下面文本框输入内容',
+				callback: function(val) {
+					if (val !== '') {
+						$wpui.Toast({
+							msg: val
+						});
+					}					
+				}
+			});
+		},
+		showToast: function() {
+			$wpui.Toast({
+				msg: 'hello world'
+			});
+		},
+		showNotify: function() {
+			$wpui.Notify({
+				msg: 'hello world',
+				title: '信息'
+			});
+		},
+		showNotify2: function() {
+			$wpui.Notify({
+				msg: 'hello world',
+				title: '成功',
+				type: 'success',
+				alive: 1000
+			});
+		},
+		showNotify3: function() {
+			$wpui.Notify({
+				msg: 'hello world',
+				title: '警告',
+				type: 'warning'
+			});
+		},
+		showNotify4: function() {
+			$wpui.Notify({
+				msg: 'hello world',
+				title: '错误',
+				type: 'error'
+			});
+		},
+		showNotify5: function() {
+			$wpui.Notify({
+				msg: 'hello world',
+				title: 'test',
+				alive: 0
+			});
+		},
+		showNotify6: function() {
+			$wpui.Notify({
+				msg: 'hello world',
+				title: 'test',
+				alive: 10000,
+				clickClose: false
+			});
+		},
+		showNotify7: function() {
+			$wpui.Notify({
+				msg: 'hello world',
+				title: 'test',
+				progress: false,
+				type: 'success'
+			});
+		},
+		showNotify8: function() {
+			$wpui.Notify({
+				msg: 'hello world',
+				title: 'test',
+				alive: 0,
+				type: 'error',
+				callback: function() {
+					$wpui.Alert('callback');
+				}
+			});
+		},
+		alertTrans: function() {
+			$wpui.Alert({
+				title: '提示框动画',
+				msg: 'now:' + new Date().format('yyyy-MM-dd hh:mm:ss'),
+				trans: 'popup'
+			});
+		}
+	}
+	
+	var app = {
+		methods: methods
+	}
+	
+	$wpui.Setup(app);
+</script>
+
+	</body>
+</html>

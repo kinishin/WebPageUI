@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">		
+		<link rel="stylesheet" href="/static/css/styles.css" />
+		<link rel="stylesheet" href="/static/css/webpageui.css" />		
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/static/css/theme.css" />
+		<!--[if lt IE 10]>
+			<link rel="stylesheet" href="./static/iefix.css" />
+		<![endif]-->
+		<script type="text/javascript" src="/static/js/webpageui.js"></script>
+		<title>WebPageUI</title>
+		
+		<style>
+			.checkboxes .wpui-checkbox {
+			    float: left;
+			    margin: 0 12px 12px 0;
+			}
+		</style>
+	</head>
+	<body class="blackgold">
+		<div class="wpui-grid">
+			<div class="header">
+				<a class="logo" href="/"><img src="../static/images/logo.svg"/></a>
+			</div>
+			<div class="wpui-panel">				
+				<div class="main">
+					<div class="leftside" id="leftside"></div>
+					<div class="main-body">
+						<div class="main-view">
+							<div class="section">
+								<div class="demo-title">
+									<h3>复选框</h3>
+								</div>
+								<div class="checkboxes clear" id="langs">
+									<div class="wpui-checkbox" wpui-checkbox>
+										<input type="checkbox" value="1" />
+										<i></i>
+										<span>C#</span>
+									</div>
+									<div class="wpui-checkbox" wpui-checkbox>
+										<input type="checkbox" value="2" />
+										<i></i>
+										<span>JAVA</span>
+									</div>
+									<div class="wpui-checkbox" wpui-checkbox>
+										<input type="checkbox" value="3" />
+										<i></i>
+										<span>PHP</span>
+									</div>
+									<div class="wpui-checkbox wpui-checkbox-disabled" wpui-checkbox>
+										<input type="checkbox" value="4" />
+										<i></i>
+										<span>Golang</span>
+									</div>
+								</div>
+								<button class="button" id="btn">获取数据</button>
+							</div>							
+						</div>
+						<div class="main-bottom">
+							<div class="fl">
+								<b>webpageui.com</b><span> © 2019</span>
+							</div>
+							<div class="fr">
+								<span>Powered by </span><b>webpageui.com</b>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>	
+		</div>
+		
+<script>
+	(function(){
+		$wpui.ajax({
+			type: 'GET',
+			dataType: 'text',
+			url: '../templates/menu.html',
+			success: function (data) {
+				$wpui.DOM.selector('#leftside').innerHTML = data;
+				$wpui.Menu.init('#leftmenu');
+			}
+		});
+	})();	
+	$wpui.Setup();
+	
+	$wpui.DOM.on('#btn', 'click', function() {
+		var msg = '';
+		document.querySelectorAll('#langs input[type="checkbox"]:checked').forEach(function(elem) {
+			console.dir(elem);
+			msg += elem.value + ',';
+		});
+		alert(msg);
+	});
+</script>
+
+	</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">		
+		<link rel="stylesheet" href="/static/css/styles.css" />
+		<link rel="stylesheet" href="/static/css/webpageui.css" />		
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/static/css/theme.css" />
+		<!--[if lt IE 10]>
+			<link rel="stylesheet" href="./static/iefix.css" />
+		<![endif]-->
+		<script type="text/javascript" src="/static/js/webpageui.js"></script>
+		<title>WebPageUI</title>
+		<style>
+			.colors {
+				text-align: center;
+			}
+			.colors .color-box {
+				display: inline-block;
+				width: 160px;
+				height: 160px;
+				margin-bottom: 20px;
+			}
+			.color-box i {
+				display: block;
+				width: 100px;
+				height: 100px;
+				margin: 0 auto 10px;
+				border-radius: 8px;
+			}
+			.color-box b,
+			.color-box span {
+				display: block;
+				text-align: center;
+				line-height: 28px;
+				color: #333;
+			}
+		</style>
+	</head>
+	<body class="blackgold">
+		<div class="wpui-grid">
+			<div class="header">
+				<a class="logo" href="/"><img src="../static/images/logo.svg"/></a>
+			</div>
+			<div class="wpui-panel">				
+				<div class="main">
+					<div class="leftside" id="leftside"></div>
+					<div class="main-body">
+						<div class="main-view">
+							<div class="section">
+								<div class="demo-title">
+									<h3>颜色</h3>
+								</div>
+								<div class="colors clear">
+									<div class="color-box">
+										<i class="bg-red"></i>
+										<b>bg-red</b>
+										<span>HEX: #f51b1b</span>
+									</div>
+									<div class="color-box">
+										<i class="bg-darkred"></i>
+										<b>bg-darkred</b>
+										<span>HEX: #900000</span>
+									</div>
+									<div class="color-box">
+										<i class="bg-green"></i>
+										<b>bg-green</b>
+										<span>HEX: #09cc15</span>
+									</div>
+									<div class="color-box">
+										<i class="bg-blue"></i>
+										<b>bg-blue</b>
+										<span>HEX: #0091ff</span>
+									</div>
+									<div class="color-box">
+										<i class="bg-yellow"></i>
+										<b>bg-yellow</b>
+										<span>HEX: #ffc307</span>
+									</div>
+									<div class="color-box">
+										<i class="bg-orange"></i>
+										<b>bg-orange</b>
+										<span>HEX: #ff8b1e</span>
+									</div>									
+									<div class="color-box">
+										<i class="bg-pink"></i>
+										<b>bg-pink</b>
+										<span>HEX: #f83e93</span>
+									</div>
+									<div class="color-box">
+										<i class="bg-gray"></i>
+										<b>bg-gray</b>
+										<span>HEX: #c8cacd</span>
+									</div>
+									<div class="color-box">
+										<i class="bg-black"></i>
+										<b>bg-black</b>
+										<span>HEX: #232323</span>
+									</div>
+								</div>
+							</div>								
+						</div>
+						<div class="main-bottom">
+							<div class="fl">
+								<b>webpageui.com</b><span> © 2019</span>
+							</div>
+							<div class="fr">
+								<span>Powered by </span><b>webpageui.com</b>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>	
+		</div>
+		
+<script>
+	(function(){
+		$wpui.ajax({
+			type: 'GET',
+			dataType: 'text',
+			url: '../templates/menu.html',
+			success: function (data) {
+				$wpui.DOM.selector('#leftside').innerHTML = data;
+				$wpui.Menu.init('#leftmenu');
+			}
+		});
+	})();	
+	$wpui.Setup();
+</script>
+
+	</body>
+</html>

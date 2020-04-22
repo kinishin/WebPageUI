@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">		
+		<link rel="stylesheet" href="/static/css/styles.css" />
+		<link rel="stylesheet" href="/static/css/webpageui.css" />		
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/static/css/theme.css" />
+		<!--[if lt IE 10]>
+			<link rel="stylesheet" href="./static/iefix.css" />
+		<![endif]-->
+		<script type="text/javascript" src="/static/js/webpageui.js"></script>
+		<title>WebPageUI</title>
+	</head>
+	<body class="blackgold">
+		<div class="wpui-grid">
+			<div class="header">
+				<a class="logo" href="/"><img src="../static/images/logo.svg"/></a>
+			</div>
+			<div class="wpui-panel">				
+				<div class="main">
+					<div class="leftside" id="leftside"></div>
+					<div class="main-body">
+						<div class="main-view">
+							<div class="section">
+								<div class="demo-title">
+									<h3>折叠面板</h3>
+								</div>
+								<div style="width: 360px;">
+									<div class="wpui-accordion" id="accordion" wpui-accordion>
+										<div class="wpui-accordion-item">
+											<div class="wpui-accordion-head">
+												<h4>Lorem ipsum dolor sit amet</h4>
+											</div>											
+											<div class="wpui-accordion-content">
+												<p>Auto-Property enhancements</p>
+												<p>Expression-bodied function members</p>
+												<p>using static</p>
+												<p>Null-conditional operators</p>
+												<p>String Interpolation</p>
+												<p>nameof Expressions</p>
+												<p>Index Initializers</p>
+												<p>Exception Filters</p>
+												<p>Await in Catch and Finally blocks</p>
+												<p>Extension Add methods in collection initializers</p>
+												<p>Improved overload resolution</p>
+											</div>
+										</div>
+										<div class="wpui-accordion-item">
+											<div class="wpui-accordion-head">
+												<h4>Lorem ipsum dolor sit amet</h4>
+											</div>	
+											<div class="wpui-accordion-content">
+												<div class="wpui-accordion">
+													<div class="wpui-accordion-item">
+														<div class="wpui-accordion-head">
+															<h4>aaa</h4>
+														</div>											
+														<div class="wpui-accordion-content">
+															<p>aaa</p>
+														</div>
+													</div>
+													<div class="wpui-accordion-item">
+														<div class="wpui-accordion-head">
+															<h4>bbb</h4>
+														</div>											
+														<div class="wpui-accordion-content">
+															<p>bbb</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="wpui-accordion-item">
+											<div class="wpui-accordion-head">
+												<h4>Lorem ipsum dolor sit amet</h4>
+											</div>	
+											<div class="wpui-accordion-content">
+												<p>003</p>
+											</div>
+										</div>
+									</div>
+								</div>								
+							</div>							
+						</div>
+						<div class="main-bottom">
+							<div class="fl">
+								<b>webpageui.com</b><span> © 2019</span>
+							</div>
+							<div class="fr">
+								<span>Powered by </span><b>webpageui.com</b>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>	
+		</div>
+		
+<script>
+	(function(){
+		$wpui.ajax({
+			type: 'GET',
+			dataType: 'text',
+			url: '../templates/menu.html',
+			success: function (data) {
+				$wpui.DOM.selector('#leftside').innerHTML = data;
+				$wpui.Menu.init('#leftmenu');
+			}
+		});
+	})();	
+	$wpui.Setup();
+</script>
+
+	</body>
+</html>

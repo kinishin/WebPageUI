@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">		
+		<link rel="stylesheet" href="/static/css/styles.css" />
+		<link rel="stylesheet" href="/static/css/webpageui.css" />		
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/static/css/theme.css" />
+		<!--[if lt IE 10]>
+			<link rel="stylesheet" href="./static/iefix.css" />
+		<![endif]-->
+		<script type="text/javascript" src="/static/js/webpageui.js"></script>
+		<title>WebPageUI</title>
+	</head>
+	<body class="blackgold">
+		<div class="wpui-grid">
+			<div class="header">
+				<a class="logo" href="/"><img src="../static/images/logo.svg"/></a>
+			</div>
+			<div class="wpui-panel">				
+				<div class="main">
+					<div class="leftside" id="leftside"></div>
+					<div class="main-body">
+						<div class="main-view">
+							<div class="section">
+								<div class="demo-title">
+									<h3>表单</h3>
+								</div>
+								<div class="wpui-form">
+									<div class="wpui-form-row">
+										<div class="wpui-form-item">
+											<label>用户名:</label>
+											<div class="wpui-form-input-container">
+												<input type="text" placeholder="请输入用户名" id="username" />
+											</div>
+										</div>
+									</div>
+									<div class="wpui-form-row">
+										<div class="wpui-form-item">
+											<label>密码:</label>
+											<div class="wpui-form-input-container">
+												<input type="text" placeholder="请输入密码" id="password" />
+											</div>
+										</div>
+									</div>
+									<div class="wpui-form-row">
+										<div class="wpui-form-item">
+											<label>姓:</label>
+											<div class="wpui-form-input-container">
+												<input type="text" placeholder="请输入您的姓" id="firstname" />
+											</div>
+										</div>
+										<div class="wpui-form-item">
+											<label>名:</label>
+											<div class="wpui-form-input-container">
+												<input type="text" placeholder="请输入您的名" id="lastname" />
+											</div>
+										</div>
+									</div>
+									<div class="wpui-form-row">
+										<div class="wpui-form-item">
+											<label>性别:</label>
+											<div class="wpui-form-input-container">
+												<select id="gender">
+													<option value="0">未知</option>
+													<option value="1">男</option>
+													<option value="2">女</option>
+												</select>
+											</div>											
+										</div>
+									</div>
+									<div class="wpui-form-row">
+										<div class="wpui-form-item">
+											<label>所属部门:</label>
+											<div class="wpui-form-input-container">
+												<div class="wpui-radio" wpui-radio>
+													<input type="radio" name="dept" value="1" checked/>
+													<i></i>
+													<span>技术</span>
+												</div>
+												<div class="wpui-radio wpui-radio-disabled" wpui-radio>
+													<input type="radio" name="dept" value="2" />
+													<i></i>
+													<span>市场</span>
+												</div>
+												<div class="wpui-radio" wpui-radio>
+													<input type="radio" name="dept" value="3" />
+													<i></i>
+													<span>人事</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="wpui-form-row">
+										<div class="wpui-form-item" id="hobbies">
+											<label>爱好:</label>
+											<div class="wpui-form-input-container">
+												<div class="wpui-checkbox" wpui-checkbox>
+													<input type="checkbox" value="1" />
+													<i></i>
+													<span>足球</span>
+												</div>
+												<div class="wpui-checkbox" wpui-checkbox>
+													<input type="checkbox" value="2" />
+													<i></i>
+													<span>篮球</span>
+												</div>
+												<div class="wpui-checkbox" wpui-checkbox>
+													<input type="checkbox" value="3" />
+													<i></i>
+													<span>赛车</span>
+												</div>
+												<div class="wpui-checkbox wpui-checkbox-disabled" wpui-checkbox>
+													<input type="checkbox" value="4" />
+													<i></i>
+													<span>其他</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="wpui-form-row">
+										<div class="wpui-form-item">
+											<label>出生日期:</label>
+											<div class="wpui-form-input-container">
+												<div class="wpui-datepick-input" id="datepick" style="width: 130px; height: 36px;">
+													<input type="text" placeholder="请选择日期" id="birthday"/>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="wpui-form-row">
+										<div class="wpui-form-item">
+											<label>个人简介:</label>
+											<div class="wpui-form-input-container">
+												<textarea id="desc"></textarea>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="wpui-form-row">
+									<div class="wpui-form-item">
+										<label>启用:</label>
+										<div class="wpui-form-input-container">
+											<div class="wpui-onoff" wpui-onoff>
+												<input class="wpui-onoff-checkbox" type="checkbox" id="isEnable"/>
+												<span>
+													<i class="check"></i>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="wpui-form-bottom">									
+									<button class="button bg-pink">重置</button>
+									<button class="button" id="btn-submit">提交</button>
+								</div>								
+							</div>							
+						</div>
+						<div class="main-bottom">
+							<div class="fl">
+								<b>webpageui.com</b><span> © 2019</span>
+							</div>
+							<div class="fr">
+								<span>Powered by </span><b>webpageui.com</b>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>	
+		</div>
+		
+<script>
+	(function(){
+		$wpui.ajax({
+			type: 'GET',
+			dataType: 'text',
+			url: '../templates/menu.html',
+			success: function (data) {
+				$wpui.DOM.selector('#leftside').innerHTML = data;
+				$wpui.Menu.init('#leftmenu');
+			}
+		});
+	})();
+	$wpui.Setup();
+	
+	$wpui.Datepick.init({
+		elem: '#datepick',
+		isInput: true
+	});
+	
+	$wpui.DOM.on('#btn-submit', 'click', function() {
+		var username = $wpui.DOM.selector('#username').value
+		var password = $wpui.DOM.selector('#password').value
+		var firstname = $wpui.DOM.selector('#firstname').value
+		var lastname = $wpui.DOM.selector('#lastname').value
+		var gender = $wpui.DOM.selector('#gender').value
+		var dept = document.querySelector('input[type="radio"][name="dept"]:checked').value
+		var hobbies = []
+		document.querySelectorAll('#hobbies input[type="checkbox"]:checked').forEach(function(elem) {
+			hobbies.push(elem.value)
+		})
+		var birthday = $wpui.DOM.selector('#birthday').value
+		var desc = $wpui.DOM.selector('#desc').value
+		var isEnable = $wpui.DOM.selector('#isEnable').checked
+		
+		var user = {
+			username: username,
+			password: password,
+			firstname: firstname,
+			lastname: lastname,
+			gender: gender,
+			dept: dept,
+			hobbies: hobbies,
+			birthday: birthday,
+			isEnable: isEnable
+		}
+		console.dir(user)
+	})
+</script>
+
+	</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">		
+		<link rel="stylesheet" href="/static/css/styles.css" />
+		<link rel="stylesheet" href="/static/css/webpageui.css" />		
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/static/css/theme.css" />
+		<!--[if lt IE 10]>
+			<link rel="stylesheet" href="./static/iefix.css" />
+		<![endif]-->
+		<script type="text/javascript" src="/static/js/webpageui.js"></script>
+		<title>WebPageUI</title>
+		<style>
+			.buttons button {
+				margin: 5px 8px 5px 0;
+			}
+			/*.modal-ios-alert {
+				width: 100%;
+				height: 100%;
+			
+				display: -webkit-flex;
+				display: -moz-flex;
+				display: flex;
+				-webkit-align-items: center;
+				-moz-align-items: center;
+				align-items: center;
+				-webkit-justify-content: center;
+				-moz-justify-content: center;
+				justify-content: center;
+			}*/
+			.ios-alert {
+				background: #2a3a63;
+				color: #fff;
+				width: 300px;
+				border: solid 3px #c0c5ce;
+				border-radius: 16px;
+				box-shadow: 0px 5px 5px #a5a5a5;
+				font-size: 20px;
+				text-align: center;
+				position: relative;
+				overflow: hidden;
+			}
+			.ios-alert-top {
+				position: relative;
+			    display: flex;
+			    justify-content: center;
+			}
+			.ios-alert-top:before {
+				content: "";
+			    position: absolute;
+			    left: 0;
+			    top: 0;
+			    width: 100%;
+			    height: 30px;
+			    background: #65718e;
+			    border-radius: 0 0 100% 100%;
+			    right: 0;
+			    margin: auto;
+			}
+			.ios-alert h2 {
+				padding: 0 10px;
+				text-align: center;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				font-size: 17px;
+				z-index: 1;
+				margin-top: 14px;
+			}
+			.ios-alert-main {
+				padding: 8px;
+			}
+			.ios-alert p {
+				font-size: 16px;
+			}
+			.ios-alert button {
+				display: flex;
+			    height: 40px;
+			    width: 100%;
+			    border-radius: 8px;			    
+			    color: #fff;
+			    font-size: 16px;
+			    overflow: hidden;
+			    position: relative;
+			    margin: 10px auto 0;
+			    justify-content: center;
+			    z-index: 1;
+			    cursor: pointer;
+			    background: #65718e;
+			}
+			.ios-alert button:before {
+				content: "";
+			    width: 100%;
+			    height: 100%;
+			    display: block;
+			    position: absolute;
+			    left: 0;
+			    top: 0;
+			    z-index: -1;
+			    background: #bbbfca;
+				background: -moz-linear-gradient(top,  #bbbfca 0%, #6a7491 50%, #546081 51%, #646e8b 100%); 
+				background: -webkit-linear-gradient(top,  #bbbfca 0%,#6a7491 50%,#546081 51%,#646e8b 100%);
+				background: linear-gradient(to bottom,  #bbbfca 0%,#6a7491 50%,#546081 51%,#646e8b 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bbbfca', endColorstr='#646e8b',GradientType=0 ); 
+			}
+			.ios-alert .b {
+				height: 20px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				background: #eee;
+				z-index: -1;
+			}
+		</style>
+	</head>
+	<body class="blackgold">
+		<div class="wpui-grid">
+			<div class="header">
+				<a class="logo" href="/"><img src="../static/images/logo.svg"/></a>
+			</div>
+			<div class="wpui-panel">				
+				<div class="main">
+					<div class="leftside" id="leftside"></div>
+					<div class="main-body">
+						<div class="main-view">
+							<div class="section">
+								<div class="demo-title">
+									<h3>模态框</h3>
+								</div>
+								<div class="buttons">
+									<button class="button" wpui-click="modalShow">模态框</button>
+									<button class="button" wpui-click="alertex">alertex</button>
+									<button class="button" wpui-click="modalShow2">网络请求</button>
+								</div>
+							</div>							
+						</div>
+						<div class="main-bottom">
+							<div class="fl">
+								<b>webpageui.com</b><span> © 2019</span>
+							</div>
+							<div class="fr">
+								<span>Powered by </span><b>webpageui.com</b>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>	
+		</div>
+		
+<script>
+	(function(){
+		$wpui.ajax({
+			type: 'GET',
+			dataType: 'text',
+			url: '../templates/menu.html',
+			success: function (data) {
+				$wpui.DOM.selector('#leftside').innerHTML = data;
+				$wpui.Menu.init('#leftmenu');
+			}
+		});
+	})();	
+	
+	let app = {
+		methods: {
+			modalShow: function() {
+				$wpui.Modal({
+					template: '<div class="ios-alert">\
+									<div class="ios-alert-top">\
+										<h2 class="ios-alert-title">Hi WebPageUI</h2>\
+									</div>\
+									<div class="ios-alert-main">\
+										<p>hello world</p>\
+										<button wpui-click="ok" ref="btn">OK!</button>\
+									</div>\
+								</div>',
+					trans: 'fade',
+					winClass: 'modal-ios-alert',
+					methods: {
+						ok: function() {
+							$wpui.DOM.closeModal(this, 'fade');						
+						}
+					}
+				})
+			},
+			modalShow2: function() {
+				$wpui.ajax({
+					type: 'GET',
+					dataType: 'text',
+					url: '../templates/modal.html',
+					success: function (html) {
+						$wpui.Modal({
+							template: html,
+							trans: 'fadezoom',
+							methods: {
+								close: function() {
+									$wpui.DOM.closeModal(this, 'fadezoom');						
+								}
+							}
+						})
+					}
+				});
+			},
+			alertex: function() {
+				$wpui.Alertex({
+					title: 'aaa',
+					trans: 'fadezoom'
+				});
+			}
+		}
+	}
+	
+	$wpui.Setup(app);
+</script>
+
+	</body>
+</html>

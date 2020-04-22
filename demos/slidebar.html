@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">		
+		<link rel="stylesheet" href="/static/css/styles.css" />
+		<link rel="stylesheet" href="/static/css/webpageui.css" />		
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/static/css/theme.css" />
+		<!--[if lt IE 10]>
+			<link rel="stylesheet" href="./static/iefix.css" />
+		<![endif]-->
+		<script type="text/javascript" src="/static/js/webpageui.js"></script>
+		<title>WebPageUI</title>
+	</head>
+	<body class="blackgold">
+		<div class="wpui-grid">
+			<div class="header">
+				<a class="logo" href="/"><img src="../static/images/logo.svg"/></a>
+			</div>
+			<div class="wpui-panel">				
+				<div class="main">
+					<div class="leftside" id="leftside"></div>
+					<div class="main-body">
+						<div class="main-view">
+							<div class="section">
+								<div class="demo-title">
+									<h3>滑块</h3>
+								</div>
+								<div class="wpui-slidebar" wpui-slidebar></div>
+							</div>	
+							<div class="section">
+								<div class="demo-title">
+									<h3>滑动事件</h3>
+								</div>
+								<div class="wpui-slidebar" id="slider2"></div>
+								<br />
+								<p id="result2">-</p>
+								<br />
+								<button class="button" wpui-click="getdata2">获取值</button>
+							</div>	
+							<div class="section">
+								<div class="demo-title">
+									<h3>垂直滑块</h3>
+								</div>
+								<div class="wpui-vslidebar" id="vslider" style="height: 200px;"></div>
+								<br /><br />
+								<p id="result3">-</p>
+							</div>	
+						</div>
+						<div class="main-bottom">
+							<div class="fl">
+								<b>webpageui.com</b><span> © 2019</span>
+							</div>
+							<div class="fr">
+								<span>Powered by </span><b>webpageui.com</b>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>	
+		</div>
+		
+<script>
+	(function(){
+		$wpui.ajax({
+			type: 'GET',
+			dataType: 'text',
+			url: '../templates/menu.html',
+			success: function (data) {
+				$wpui.DOM.selector('#leftside').innerHTML = data;
+				$wpui.Menu.init('#leftmenu');
+			}
+		});
+	})();	
+	
+	var app = {
+		methods: {
+			getdata2: function() {
+				var slider2Val = document.querySelector('#slider2 input');
+				$wpui.Toast(slider2Val.value);
+			}
+		}
+	}
+	
+	$wpui.Setup(app);
+	
+	$wpui.Slidebar({
+		elem: '#slider2',
+		value: 100,
+		min: -50,
+		max: 200,
+		sliding: function(val) {
+			var result2 = document.getElementById('result2');
+			result2.innerHTML = val;
+		}
+	});
+	
+	$wpui.VSlidebar({
+		elem: '#vslider',
+		min: -50,
+		max: 200,
+		sliding: function(val) {
+			var result3 = document.getElementById('result3');
+			result3.innerHTML = val;
+		}
+	});
+</script>
+
+	</body>
+</html>

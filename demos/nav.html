@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">		
+		<link rel="stylesheet" href="/static/css/styles.css" />
+		<link rel="stylesheet" href="/static/css/webpageui.css" />		
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/static/css/theme.css" />
+		<!--[if lt IE 10]>
+			<link rel="stylesheet" href="./static/iefix.css" />
+		<![endif]-->
+		<script type="text/javascript" src="/static/js/webpageui.js"></script>
+		<title>WebPageUI</title>
+	</head>
+	<body class="blackgold">
+		<div class="wpui-grid">
+			<div class="header">
+				<a class="logo" href="/"><img src="../static/images/logo.svg"/></a>
+			</div>
+			<div class="wpui-panel">				
+				<div class="main">
+					<div class="leftside" id="leftside"></div>
+					<div class="main-body">
+						<div class="main-view">
+							<div class="section">
+								<div class="demo-title">
+									<h3>面包屑</h3>
+								</div>
+								<div class="wpui-crumbs">
+									<a>首页</a>
+									<span>></span>
+									<a>分类</a>
+									<span>></span>
+									<a>html</a>
+								</div>
+								<div class="wpui-crumbs">
+									<a>首页</a>
+									<span> / </span>
+									<a>分类</a>
+									<span> / </span>
+									<a>html</a>
+								</div>
+							</div>						
+							<div class="section">
+								<div class="demo-title">
+									<h3>水平导航</h3>
+								</div>
+								<ul class="wpui-nav" style="margin-bottom: 20px;">
+									<li><a>HOME</a></li>
+									<li>
+										<a>PRODUCT</a>
+										<ul>
+											<li><a href="/">001</a></li>
+											<li><a href="/">002</a></li>
+											<li><a href="/">003</a></li>
+										</ul>
+									</li>
+									<li><a>NEWS</a></li>
+									<li><a>ABOUT</a></li>
+								</ul>
+								<ul class="wpui-nav wpui-nav-black" style="margin-bottom: 20px;">
+									<li><a>HOME</a></li>
+									<li><a>PRODUCT</a></li>
+									<li><a>NEWS</a></li>
+									<li><a>ABOUT</a></li>
+								</ul>
+								<ul class="wpui-nav wpui-nav-blue">
+									<li><a>HOME</a></li>
+									<li>
+										<a>PRODUCT</a>
+										<ul>
+											<li><a href="/">001</a></li>
+											<li><a href="/">002</a></li>
+											<li><a href="/">003</a></li>
+										</ul>
+									</li>
+									<li><a>NEWS</a></li>
+									<li><a>ABOUT</a></li>
+								</ul>
+							</div>
+							<div class="section">
+								<div class="demo-title">
+									<h3>垂直导航</h3>
+								</div>
+								<div style="width: 180px;">
+									<ul class="wpui-nav-vertical">
+										<li>
+											<div class="wpui-nav-vertical-title">
+												<h3>导航</h3>
+											</div>											
+											<ul class="subnav">
+												<li><a href="#">001</a></li>
+												<li><a href="#">002</a></li>
+												<li><a href="#">003</a></li>
+											</ul>
+										</li>
+										<li>
+											<div class="wpui-nav-vertical-title">
+												<h3>导航2</h3>
+											</div>	
+											<ul class="subnav">
+												<li><a href="#">aaa</a></li>
+												<li><a href="#">bbb</a></li>
+												<li><a href="#">ccc</a></li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+								<div style="width: 160px; margin-top: 20px;">
+									<ul class="wpui-nav-vertical wpui-nav-vertical-blue">
+										<li>
+											<div class="wpui-nav-vertical-title">
+												<h3>导航</h3>
+											</div>											
+											<ul class="subnav">
+												<li><a href="#">001</a></li>
+												<li><a href="#">002</a></li>
+												<li><a href="#">003</a></li>
+											</ul>
+										</li>
+										<li>
+											<div class="wpui-nav-vertical-title">
+												<h3>导航2</h3>
+											</div>	
+											<ul class="subnav">
+												<li><a href="#">aaa</a></li>
+												<li><a href="#">bbb</a></li>
+												<li><a href="#">ccc</a></li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="section">
+								<div class="demo-title">
+									<h3>折叠菜单</h3>
+								</div>
+								<div style="width: 180px; border: solid 1px #e4e4e4;">
+									<ul class="wpui-menu" wpui-menu>
+										<li class="dropdown">
+											<span>基本元素</span>
+											<ul>									
+												<li><a href="/demos/button.html">按钮(button)</a></li>
+												<li><a href="/demos/tab.html">选项卡(tab)</a></li>
+												<li><a href="/demos/nav.html">导航(nav)</a></li>
+											</ul>
+										</li>
+										<li class="dropdown">
+											<span>组件</span>
+											<ul>
+												<li><span>对话框(dialog)</span></li>
+											</ul>
+										</li>
+										<li>
+											<a href="/">其他</a>
+										</li>
+									</ul>
+								</div>
+							</div>						
+						</div>
+						<div class="main-bottom">
+							<div class="fl">
+								<b>webpageui.com</b><span> © 2019</span>
+							</div>
+							<div class="fr">
+								<span>Powered by </span><b>webpageui.com</b>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>	
+		</div>
+		
+<script>
+	(function(){
+		$wpui.ajax({
+			type: 'GET',
+			dataType: 'text',
+			url: '../templates/menu.html',
+			success: function (data) {
+				$wpui.DOM.selector('#leftside').innerHTML = data;
+				$wpui.Menu.init('#leftmenu');
+			}
+		});
+	})();	
+	$wpui.Setup();
+</script>
+
+	</body>
+</html>

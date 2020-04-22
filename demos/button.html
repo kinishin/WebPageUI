@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">		
+		<link rel="stylesheet" href="/static/css/styles.css" />
+		<link rel="stylesheet" href="/static/css/webpageui.css" />		
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/static/css/theme.css" />
+		<!--[if lt IE 10]>
+			<link rel="stylesheet" href="./static/iefix.css" />
+		<![endif]-->
+		<script type="text/javascript" src="/static/js/webpageui.js"></script>
+		<title>WebPageUI</title>
+	</head>
+	<body class="blackgold">
+		<div class="wpui-grid">
+			<div class="header">
+				<a class="logo" href="/"><img src="../static/images/logo.svg"/></a>
+			</div>
+			<div class="wpui-panel">				
+				<div class="main">
+					<div class="leftside" id="leftside"></div>
+					<div class="main-body">
+						<div class="main-view">
+							<div class="section">
+								<div class="demo-title">
+									<h3>按钮</h3>
+								</div>
+								<div class="demo-buttons">
+									<button class="button">默认按钮</button>
+									<button class="button bg-red">红色按钮</button>
+									<button class="button bg-green">绿色按钮</button>
+									<button class="button bg-yellow">黄色按钮</button>
+									<button class="button" disabled>禁用按钮</button>
+								</div>
+							</div>
+							<div class="section">
+								<div class="demo-title">
+									<h3>按钮组</h3>
+								</div>
+								<div style="margin-bottom: 15px;">
+									<div class="button-group">
+										<button class="button">增加</button>
+										<button class="button">删除</button>
+										<button class="button">编辑</button>
+										<button class="button">查找</button>
+									</div>
+								</div>		
+								<div style="margin-bottom: 15px;">
+									<div class="button-group button-group-green">
+										<button class="button button-big">增加</button>
+										<button class="button button-big">删除</button>
+										<button class="button button-big">编辑</button>
+										<button class="button button-big">查找</button>
+									</div>
+								</div>
+								<div>
+									<div class="button-group">
+										<button class="button button-small">增加</button>
+										<button class="button button-small">删除</button>
+										<button class="button button-small">编辑</button>
+										<button class="button button-small">查找</button>
+									</div>
+								</div>
+							</div>
+							<div class="section">
+								<div class="demo-title">
+									<h3>图标按钮</h3>
+								</div>
+								<div class="demo-buttons">
+									<button class="button"><i class="fa fa-download"></i>下载</button>
+									<button class="button"><i class="fa fa-plus"></i>添加</button>
+									<button class="button"><i class="fa fa-remove"></i>删除</button>
+								</div>
+							</div>
+						</div>
+						<div class="main-bottom">
+							<div class="fl">
+								<b>webpageui.com</b><span> © 2019</span>
+							</div>
+							<div class="fr">
+								<span>Powered by </span><b>webpageui.com</b>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>	
+		</div>
+		
+<script>
+	(function(){
+		$wpui.ajax({
+			type: 'GET',
+			dataType: 'text',
+			url: '../templates/menu.html',
+			success: function (data) {
+				$wpui.DOM.selector('#leftside').innerHTML = data;
+				$wpui.Menu.init('#leftmenu');
+			}
+		});
+	})();	
+	$wpui.Setup();
+</script>
+
+	</body>
+</html>

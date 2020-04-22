@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">		
+		<link rel="stylesheet" href="/static/css/styles.css" />
+		<link rel="stylesheet" href="/static/css/webpageui.css" />		
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/static/css/theme.css" />
+		<!--[if lt IE 10]>
+			<link rel="stylesheet" href="./static/iefix.css" />
+		<![endif]-->
+		<script type="text/javascript" src="/static/js/webpageui.js"></script>
+		<title>WebPageUI</title>
+		<style>
+			.wpui-progress-customer {
+				height: 50px;
+				padding: 7px;
+				border-radius: 0;
+			}
+			.wpui-progress-customer > em {
+				--pcolor1: #85d555;
+				--pcolor2: #9fde75;
+				border-radius: 0;
+				background-image: linear-gradient(45deg,var(--pcolor1) 25%,var(--pcolor2) 25%,var(--pcolor2) 50%,var(--pcolor1) 50%,var(--pcolor1) 75%,var(--pcolor2) 75%,var(--pcolor2) 100%);
+				background-size: 36px 36px;
+				animation: progressAnimation 3s linear infinite;
+			}
+			@-webkit-keyframes progressAnimation{
+			    to {
+				    background-position: 100px 0;
+				}
+			}
+			@-moz-keyframes progressAnimation{
+			    to {
+				    background-position: 100px 0;
+				}
+			}
+			@keyframes progressAnimation{
+			    to {
+				    background-position: 100px 0;
+				}
+			}
+			.wpui-progress-customer2 {
+				height: 20px;
+				line-height: 20px;
+			}
+			.wpui-progress-customer2 > em {
+				background-color: #ff8b1e;
+			}
+		</style>
+	</head>
+	<body class="blackgold">
+		<div class="wpui-grid">
+			<div class="header">
+				<a class="logo" href="/"><img src="../static/images/logo.svg"/></a>
+			</div>
+			<div class="wpui-panel">				
+				<div class="main">
+					<div class="leftside" id="leftside"></div>
+					<div class="main-body">
+						<div class="main-view">
+							<div class="section">
+								<div class="demo-title">
+									<h3>进度条</h3>
+								</div>
+								<div class="wpui-progress"><em style="width: 10%"></em></div>
+								<br />
+								<div class="wpui-progress"><em style="width: 20%" class="bg-green"></em></div>
+								<br />
+								<div class="wpui-progress"><em style="width: 30%" class="bg-darkred"></em></div>
+								<br />
+								<div class="wpui-progress"><em style="width: 40%" class="bg-orange"></em></div>
+							</div>	
+							<div class="section">
+								<div class="demo-title">
+									<h3>自定义样式</h3>
+								</div>
+								<div class="wpui-progress wpui-progress-customer"><em style="width: 30%"></em></div>
+							</div>
+							<div class="section">
+								<div class="demo-title">
+									<h3>设置进度</h3>
+								</div>
+								<div class="wpui-progress wpui-progress-customer2" id="progress">
+									<em style="width: 30%">
+										<span>30%</span>
+									</em>
+								</div>
+								<br />
+								<button class="button" wpui-click="setProgress">设置</button>
+							</div>						
+						</div>
+						<div class="main-bottom">
+							<div class="fl">
+								<b>webpageui.com</b><span> © 2019</span>
+							</div>
+							<div class="fr">
+								<span>Powered by </span><b>webpageui.com</b>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>	
+		</div>
+		
+<script>
+	(function(){
+		$wpui.ajax({
+			type: 'GET',
+			dataType: 'text',
+			url: '../templates/menu.html',
+			success: function (data) {
+				$wpui.DOM.selector('#leftside').innerHTML = data;
+				$wpui.Menu.init('#leftmenu');
+			}
+		});
+	})();	
+	
+	var app = {
+		methods: {
+			setProgress: function() {
+				var num = Math.floor(Math.random()*(1 - 100) + 100);
+				$wpui.DOM.progress('#progress', num)
+			}
+		}
+	}
+	
+	$wpui.Setup(app);
+</script>
+
+	</body>
+</html>

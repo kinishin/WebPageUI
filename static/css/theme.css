@@ -1,0 +1,26 @@
+.blackgold .header {
+	background-color: #000;
+	border-bottom: none;
+}
+.blackgold .leftside {
+	background: #262a2e;
+}
+.blackgold .leftside > ul.wpui-menu,
+.blackgold .leftside > ul.wpui-menu span,
+.blackgold .leftside > ul.wpui-menu a {
+	border-bottom: none;
+	color: #fff;
+}
+.blackgold .leftside > ul.wpui-menu > li > ul > li {
+	background: #111;
+}
+.blackgold .leftside > ul.wpui-menu > li > a:hover,
+.blackgold .leftside > ul.wpui-menu > li > ul > li:hover {
+	background: #982e00;
+}
+.blackgold .leftside > ul.wpui-menu > li > ul > li.on {
+	background: #982e00;
+}
+.blackgold .leftside::-webkit-scrollbar-thumb {
+	background: #908257;
+}
