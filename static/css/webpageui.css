@@ -1867,11 +1867,11 @@ span.wpui-vslider-value:before {
 }
 .wpui-carousel-view a.prev {
 	left: 20px;
-	background-image: url('/static/images/arrow-left.png');
+	background-image: url('../images/arrow-left.png');
 }
 .wpui-carousel-view a.next {
 	right: 20px;
-	background-image: url('/static/images/arrow-right.png');
+	background-image: url('../images/arrow-right.png');
 }
 .wpui-carousel-view .dots {
 	bottom: 8px;
