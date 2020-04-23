@@ -76,7 +76,7 @@
 		$wpui.ajax({
 			type: 'GET',
 			dataType: 'text',
-			url: '../templates/menu.html',
+			url: 'templates/menu.html',
 			success: function (data) {
 				$wpui.DOM.selector('#leftside').innerHTML = data;
 				$wpui.Menu.init('#leftmenu');
