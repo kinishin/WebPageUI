@@ -707,7 +707,7 @@ button.button-small {
     position: absolute;
     right: 20px;
     bottom: 30px;
-    z-index: 59999;
+    z-index: 9998;
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
